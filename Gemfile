@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem "paperclip", "~> 5.0.0"
 gem 'devise'
+gem 'wdm', '>=0.1.0' if Gem.win_platform?
 gem 'bootstrap-sass', '~> 3.3.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'

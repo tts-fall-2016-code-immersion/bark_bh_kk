@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :tweets
+  get 'likes/create'
+
+  get "profiles/:id" => "profiles#show", as: :profile
+  get "profiles" => "profiles#index"
+
+  resources :tweets do
+    resource :like
+  end
+  resources :relationships
   root to: "tweets#index"
 
   devise_for :users

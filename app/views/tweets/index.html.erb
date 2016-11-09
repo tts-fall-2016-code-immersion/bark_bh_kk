@@ -1,14 +1,36 @@
 
 <div class="jumbotron">
-  <h1>Whatever, this is just a header</h1>
+  <h2>Tweets History</h2>
 </div>
 
 
-<div>
-  <div>
-    <div>
-
+<div class="container tweets-cont">
+  <div class="row">
+    <% @tweets.each do |tweet| %>
+    <div class="col-xs-12 col-sm-4 twt-section">
+      <div class="row">
+        <div class="col-xs-6 twt-name">
+          <%= tweet.user.name %>
+        </div>
+        <div class="col-xs-6 twt-username">
+          <%= tweet.user.username %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 twt-msg">
+          <%= tweet.message %>
+        </div>       
+      </div>
+      <div class="row">
+        <div class="col-xs-12 twt-btns">
+          <div class="btn btn-color"> <%= link_to 'Show', tweet_path(tweet.id) %> </div>
+          <div class="btn btn-color"> <%= link_to 'Edit', edit_tweet_path(tweet.id) %> </div>
+          <div class="btn btn-color"> <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+        </div>       
+      </div>
     </div>
+      
+    <% end %>
   </div>
 </div>
 
@@ -16,26 +38,8 @@
 
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Message</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.message %></td>
-        <td><%= tweet.user.username %></td>
-        <td><%= link_to 'Show', tweet_path(tweet.id) %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet.id) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+
+
 <%= link_to 'New Tweet', new_tweet_path %>
+
 <%= link_to 'Sign Out!', destroy_user_session_path, method: :delete %>

@@ -1,3 +1,40 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div .container .tweets-cont {
+    border-style: solid;
+}
+
+div .twt-section {
+    box-shadow: 4px 4px 2px lightgray;
+    background-color: white;
+    padding: 1%;
+    margin-bottom: 1%;
+
+}
+
+.twt-name {
+    font-size: 1.2em;
+
+}
+
+
+.twt-username {
+    font-size: 1.0em;
+    color: darkgray;
+}
+
+
+.twt-msg {
+
+}
+
+
+.twt-btns {
+
+}
+
+.btn-color {
+    background-color: lightgray;
+}
